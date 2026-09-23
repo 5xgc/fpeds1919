@@ -20,29 +20,44 @@
         .glow-logo {
             filter: drop-shadow(0 0 15px rgba(220, 38, 38, 0.3));
         }
+        .page-view {
+            transition: opacity 0.25s ease-in-out;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between items-center selection:bg-red-900 selection:text-white p-6">
+<body class="min-h-screen flex flex-col justify-between items-center selection:bg-red-900 selection:text-white p-6 relative">
+
+    <!-- Left Toggle Button -->
+    <button onclick="togglePage('docPage')" aria-label="Toggle Documentary" class="fixed top-1/2 left-4 -translate-y-1/2 z-50 p-2 text-red-600 hover:text-red-400 transition-colors duration-200 focus:outline-none">
+        <span class="text-3xl sm:text-4xl font-bold gothic-font">&lt;</span>
+    </button>
+
+    <!-- Right Toggle Button -->
+    <button onclick="togglePage('infoPage')" aria-label="Toggle Analysis" class="fixed top-1/2 right-4 -translate-y-1/2 z-50 p-2 text-red-600 hover:text-red-400 transition-colors duration-200 focus:outline-none">
+        <span class="text-3xl sm:text-4xl font-bold gothic-font">&gt;</span>
+    </button>
+
     <header class="w-full max-w-5xl flex justify-center items-center py-6">
-        <div class="flex items-center gap-3">
-            <img src="blob:https://mega.nz/3f36dedc-ee71-4486-86bd-0370077cb45e" onerror="this.src='https://placehold.co/60x60/111/dc2626?text=1919'" alt="Logo" class="w-10 h-10 rounded-full border border-red-900 object-cover glow-logo">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('mainPage')">
+            <img src="1919.png" onerror="this.src='https://placehold.co/60x60/111/dc2626?text=1919'" alt="Logo" class="w-10 h-10 rounded-full border border-red-900 object-cover glow-logo">
             <span class="gothic-font text-xl text-red-600 tracking-wider">/1919</span>
         </div>
     </header>
 
-    <main class="flex-1 flex flex-col items-center justify-center text-center max-w-4xl px-4 my-auto">
-        <div class="mb-8">
-            <img src="blob:https://mega.nz/3f36dedc-ee71-4486-86bd-0370077cb45e" onerror="this.src='https://placehold.co/120x120/111/dc2626?text=FPEDS'" alt="Top Pentagram Logo" class="w-28 h-28 mx-auto rounded-full border-2 border-red-900 object-cover glow-logo animate-pulse">
+    <main class="flex-1 flex flex-col items-center justify-center text-center max-w-4xl px-4 my-auto w-full">
+        <div class="mb-8 cursor-pointer" onclick="showPage('mainPage')">
+            <img src="1919.png" onerror="this.src='https://placehold.co/120x120/111/dc2626?text=1919'" alt="1919 Pentagram Logo" class="w-28 h-28 mx-auto rounded-full border-2 border-red-900 object-cover glow-logo animate-pulse">
         </div>
 
-        <div class="flex items-center justify-center w-full">
+        <!-- MAIN HOME PAGE -->
+        <div id="mainPage" class="page-view flex items-center justify-center w-full">
             <div class="flex flex-col items-center max-w-2xl w-full">
                 <h1 class="gothic-font text-5xl sm:text-7xl md:text-8xl text-red-600 glow-red tracking-wide py-2">
                     /fpeds /1919
                 </h1>
                 
                 <div class="text-zinc-400 text-sm sm:text-base font-light tracking-wide mt-6 space-y-4 text-left bg-zinc-950/80 p-6 rounded-lg border border-red-900/30 w-full shadow-lg shadow-black/50">
-                    <h2 class="text-red-700 font-semibold tracking-widest uppercase mb-4 text-center text-lg">Current Network</h2>
+                    <h2 class="text-red-700 font-semibold tracking-widest uppercase mb-4 text-center text-lg">FPEDS Timeline & Current Network</h2>
                     
                     <p><strong class="text-zinc-200">2024–2025:</strong> Founded in 2024 and temporarily disbanded in 2025.</p>
                     
@@ -57,10 +72,131 @@
                 </div>
             </div>
         </div>
+
+        <!-- LEFT PAGE: DOCUMENTARY -->
+        <div id="docPage" class="page-view hidden flex items-center justify-center w-full">
+            <div class="flex flex-col items-center max-w-2xl w-full">
+                <div class="w-full flex justify-between items-center mb-2">
+                    <button onclick="showPage('mainPage')" class="text-xs uppercase tracking-widest text-red-500 hover:text-red-300 border border-red-900/50 px-3 py-1 rounded bg-zinc-950/50 transition-colors">← Close / Home</button>
+                    <span class="text-xs text-zinc-600 uppercase tracking-widest">Documentary View</span>
+                </div>
+                
+                <h1 class="gothic-font text-4xl sm:text-6xl text-red-600 glow-red tracking-wide py-2">
+                    DOCUMENTARY
+                </h1>
+
+                <div class="text-zinc-400 text-sm sm:text-base font-light tracking-wide mt-4 space-y-6 text-left bg-zinc-950/80 p-6 sm:p-8 rounded-lg border border-red-900/30 w-full shadow-lg shadow-black/50">
+                    <p class="leading-relaxed">
+                        The Current Network is an online collective that originated in 2024. After a brief hiatus following its initial dissolution in 2025, the movement underwent a massive resurgence in 2026, driven primarily by a large anti-pedophile user base. Following the retirement of its original operator, known as FedEx, management of the brand transitioned to 1919.
+                    </p>
+
+                    <div class="border-t border-zinc-900 pt-4">
+                        <h3 class="text-red-600 font-semibold tracking-widest uppercase mb-2 text-md">Foundation and Initial Disbandment (2024–2025)</h3>
+                        <p class="leading-relaxed">
+                            Originally founded in 2024 under the moniker <strong class="text-zinc-200">fpeds</strong> by the operator FedEx, the initial network operated until it was discontinued in 2025.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-zinc-900 pt-4">
+                        <h3 class="text-red-600 font-semibold tracking-widest uppercase mb-2 text-md">Resurgence and Current Operations (2026)</h3>
+                        <p class="leading-relaxed">
+                            Revived in 2026 through a partnership between FedEx and a user named Misery, the network expanded rapidly, becoming an exceptionally prominent and widely recognized entity. Although later disbanded again by FedEx, sole authorization to revive fpeds remains exclusively with FedEx—who operates under the handle <span class="text-red-400 font-mono">@vet</span> along with aliases including FedEx, Vet, Z4, and Exe.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-zinc-900 pt-4">
+                        <h3 class="text-red-600 font-semibold tracking-widest uppercase mb-2 text-md">Active Network Groups</h3>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-zinc-300">
+                            <li><strong class="text-red-500">1919:</strong> An extremely dangerous anti-pedophile extortion group that directly continued the fpeds lineage. Initially established in 2024 by founder FedEx, the original entity was shut down in 2025 before being revived alongside a user named Misery in 2026. Under this joint effort, the group expanded into a massive, highly visible online presence before its eventual disbandment by FedEx. Currently, sole authority to officially revive fpeds rests exclusively with FedEx (operating as @vet, with additional aliases including Vet, Z4, and Exe).</li>
+                            <li><strong class="text-zinc-100">TP</strong></li>
+                            <li><strong class="text-zinc-100">slither</strong></li>
+                            <li><strong class="text-zinc-100">cat540</strong></li>
+                            <li><strong class="text-zinc-100">505</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-6 p-4 border-l-2 border-red-700 bg-red-950/20 text-red-400/90 text-sm tracking-wider">
+                        <strong class="uppercase text-red-600 block mb-1">Content Advisory:</strong> 
+                        Interacting with or participating in these groups carries substantial risk. Users will encounter severe self-harm imagery, explicit cutting content, and extreme distress material.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PAGE: INVESTIGATIVE & LEGAL OVERVIEW -->
+        <div id="infoPage" class="page-view hidden flex items-center justify-center w-full">
+            <div class="flex flex-col items-center max-w-2xl w-full">
+                <div class="w-full flex justify-between items-center mb-2">
+                    <button onclick="showPage('mainPage')" class="text-xs uppercase tracking-widest text-red-500 hover:text-red-300 border border-red-900/50 px-3 py-1 rounded bg-zinc-950/50 transition-colors">← Close / Home</button>
+                    <span class="text-xs text-zinc-600 uppercase tracking-widest">Analysis View</span>
+                </div>
+
+                <h1 class="gothic-font text-4xl sm:text-6xl text-red-600 glow-red tracking-wide py-2">
+                    ANALYSIS
+                </h1>
+
+                <div class="text-zinc-400 text-sm sm:text-base font-light tracking-wide mt-4 space-y-6 text-left bg-zinc-950/80 p-6 sm:p-8 rounded-lg border border-red-900/30 w-full shadow-lg shadow-black/50">
+                    <p class="leading-relaxed">
+                        Online networks operating under radical vigilante frameworks routinely draw intense law enforcement scrutiny due to the tactics employed by their members. While ostensibly positioned against illegal operations, these decentralized collectives frequently engage in coercive practices, extortion, and cyber harassment that breach domestic and international laws.
+                    </p>
+
+                    <div class="border-t border-zinc-900 pt-4">
+                        <h3 class="text-red-600 font-semibold tracking-widest uppercase mb-2 text-md">Federal & Law Enforcement Monitoring</h3>
+                        <p class="leading-relaxed">
+                            Organized online networks utilizing extortion, coercion, or financial blackmail typically trigger active monitoring by federal agencies, including FBI cyber crime divisions. These investigations focus on tracking digital footprints, encrypted communications, network infrastructure, and cryptocurrency transactions linked to illicit operational funds.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-zinc-900 pt-4">
+                        <h3 class="text-red-600 font-semibold tracking-widest uppercase mb-2 text-md">Mechanisms of Digital Extortion</h3>
+                        <p class="leading-relaxed">
+                            Groups within these ecosystems rely on coordinated harassment, doxxing, network intrusion, and forced compliance. By compelling targets through psychological coercion or public exposure, these entities operate outside judicial systems, exposing all participants—both organizers and targets—to severe legal liabilities and criminal charges.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-zinc-900 pt-4">
+                        <h3 class="text-red-600 font-semibold tracking-widest uppercase mb-2 text-md">Systemic Risk Exposure</h3>
+                        <p class="leading-relaxed">
+                            Individuals associated with these channels face high risk profiles. Aside from potential legal prosecution for complicity in extortion or harassment campaigns, members are routinely exposed to psychological trauma, extreme self-harm material, and malicious software designed to compromise user telemetry.
+                        </p>
+                    </div>
+
+                    <div class="mt-6 p-4 border-l-2 border-red-700 bg-red-950/20 text-red-400/90 text-sm tracking-wider">
+                        <strong class="uppercase text-red-600 block mb-1">Notice:</strong> 
+                        Affiliated With Com Network.
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer class="w-full max-w-5xl flex justify-center items-center py-6 text-xs text-zinc-600 border-t border-zinc-900 mt-8">
         <p>&copy; 2026 FPEDS. All rights reserved.</p>
     </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = ['mainPage', 'docPage', 'infoPage'];
+            pages.forEach(id => {
+                const element = document.getElementById(id);
+                if (id === pageId) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+        }
+
+        function togglePage(pageId) {
+            const targetElement = document.getElementById(pageId);
+            // If the requested page is already open, clicking the button again will take you back to the main page
+            if (!targetElement.classList.contains('hidden')) {
+                showPage('mainPage');
+            } else {
+                showPage(pageId);
+            }
+        }
+    </script>
 </body>
 </html>
